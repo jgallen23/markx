@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>markx</title>
+    <link type="text/css" rel="stylesheet" href="ui/common.css"/>
+    <link type="text/css" rel="stylesheet" href="ui/ir_black.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+<h1>markx</h1>
+<h3>markdown + syntax highlighting =&gt; html</h3>
+<p>Markx is a command line tool for node.js to convert markdown and code into html.  It also has the ability to preview your markdown files live with auto refresh.
+
+</p>
+<h2>Install</h2>
+<pre><code><span class="title">npm</span> install -g markx</code></pre>
+<h2>Usage</h2>
+<pre><code>Usage: markx [<span class="keyword">file</span>]
+
+Options:
+
+    -h, <span class="comment">--help            output usage information</span>
+    -V, <span class="comment">--version         output the version number</span>
+    -l, <span class="comment">--lang &lt;lang>     Language for syntax highlighting (default: auto)</span>
+    -p, <span class="comment">--preview &lt;port>  Start a server to get a live preview</span>
+
+Examples:
+
+    # convert markdown <span class="keyword">and</span> code blocks <span class="keyword">to</span> html
+    $ markx blog.md > blog.html
+
+    # convert markdown <span class="keyword">and</span> specific language code blocks <span class="keyword">to</span> html
+    $ markx <span class="comment">--lang javascript blog.md > blog.html</span>
+
+    # live preview <span class="keyword">of</span> your markdown <span class="keyword">file</span>
+    $ markx <span class="comment">--lang javascript --preview 8001 blog.md</span></code></pre>
+<h2>CSS for Syntax Highlighter</h2>
+<p><a href="https://github.com/jgallen23/highlight.js/tree/master/src/styles">Here</a> are some css files that will style the code blocks. 
+</p></div></body></html>
