@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var render = require('../lib/render');
+var preview = require('../lib/preview');
+
+program
+  .version('0.0.1')
+	.option('-l, --lang <lang>', 'Language for syntax highlighting (default: auto)')
+  .option('-p, --preview <port>', 'Start a server to get a live preview', parseInt)
+  .usage('[file]')
+
+program.on('--help', function() {
+  console.log('  Examples:');  
+  console.log('');  
+  console.log('    # convert markdown and code blocks to html');
+  console.log('    $ markx blog.md > blog.html');
+  console.log('');
+  console.log('    # convert markdown and specific language code blocks to html');
+  console.log('    $ markx --lang javascript blog.md > blog.html');
+  console.log('');
+  console.log('    # live preview of your markdown file');
+  console.log('    $ markx --lang javascript --preview 8001 blog.md');
+});
+
+program.parse(process.argv);
+
+var files = program.args;
+
+if (files.length == 1) {
+  if (program.preview) {
+    preview(files[0], program.lang, program.preview);
+  } else {
+    render(files[0], program.lang, function(out) {
+      process.stdout.write(out);
+    });
+  }
+} else {
+  process.stdout.write(program.helpInformation());
+  program.emit('--help');
+  process.exit(1);
+}

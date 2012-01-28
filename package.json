@@ -1,0 +1,23 @@
+{
+  "name": "markx",
+  "description": "a command line markdown + syntax highlighter with live preview",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jgallen23/markx",
+  "author": "Greg Allen <@jgaui> (http://jga.me)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jgallen23/markx.git"
+  },
+  "dependencies": {
+		"commander": "*",
+		"marked": "*",
+		"highlight.js": "*",
+    "node-static": "*"
+  },
+  "devDependencies": {
+		"mocha": "*",
+    "should": "*"
+  },
+  "bin": { "markx": "./bin/markx" },
+  "keywords": ["markdown", "highlight", "cli", "syntax", "preview"]
+}
