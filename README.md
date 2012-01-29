@@ -31,6 +31,14 @@ Markx is a command line tool for node.js to convert markdown and code blocks int
 		# live preview of your markdown file
 		$ markx --lang javascript --preview 8001 blog.md
 
+##Live Preview
+	
+The `--preview` option lets you preview your markdown files before generating them as html.  When you open your browser to your live preview, you don't have to bother with refreshing every time you make a change to your markdown file, markx will automatically refresh your browser when it detects a change.  How cool is that?
+
 ##CSS for Syntax Highlighter
 
 [Here](https://github.com/jgallen23/highlight.js/tree/master/src/styles) are some css files that will style the code blocks. 
+
+##Support Languages
+
+[Here](https://github.com/jgallen23/highlight.js/tree/master/src/languages) are the supported languages for syntax highlighting.
