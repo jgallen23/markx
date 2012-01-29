@@ -7,6 +7,7 @@ var preview = require('../lib/preview');
 program
   .version('0.0.1')
 	.option('-l, --lang <lang>', 'Language for syntax highlighting (default: auto)')
+  .option('-n, --nohl', 'Disable syntax highlighting')
   .option('-p, --preview <port>', 'Start a server to get a live preview', parseInt)
   .usage('[file]')
 
@@ -29,9 +30,9 @@ var files = program.args;
 
 if (files.length == 1) {
   if (program.preview) {
-    preview(files[0], program.lang, program.preview);
+    preview(files[0], program.lang, program.nohl, program.preview);
   } else {
-    render(files[0], program.lang, function(out) {
+    render(files[0], program.lang, program.nohl, function(out) {
       process.stdout.write(out);
     });
   }

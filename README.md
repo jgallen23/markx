@@ -2,7 +2,7 @@
 
 ### markdown + syntax highlighting => html
 
-Markx is a command line tool for node.js to convert markdown and code into html.  It also has the ability to preview your markdown files live with auto refresh.
+Markx is a command line tool for node.js to convert markdown and code blocks into html.  It also has the ability to preview your markdown files live with auto refresh.
 
 ##Install
 
@@ -17,6 +17,7 @@ Markx is a command line tool for node.js to convert markdown and code into html.
 		-h, --help            output usage information
 		-V, --version         output the version number
 		-l, --lang <lang>     Language for syntax highlighting (default: auto)
+		-n, --nohl            Disable syntax highlighting
 		-p, --preview <port>  Start a server to get a live preview
 
 	Examples:
