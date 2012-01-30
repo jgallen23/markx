@@ -1,8 +1,8 @@
-# Test H1
+#This is a heading
 
-This should be a paragraph
+This is a paragraph
 
-	var a = 123;
-	var b = 'woot';
-
-another p
+	var a = '123';
+	var f = function() {
+		return 4;
+	}
