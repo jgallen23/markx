@@ -2,9 +2,9 @@
   IR_Black style (c) Vasily Mikhailitchenko <vaskas@programica.ru>
 */
 
-pre code {
+pre {
   display: block; padding: 0.5em;
-  background: #000; color: #f8f8f8;
+  background: #333; color: #f8f8f8;
 }
 
 pre .shebang,

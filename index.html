@@ -45,6 +45,30 @@ Examples:
 
     # live preview of your markdown file
     $ markx --lang javascript --preview 8001 blog.md</code></pre>
+<h2>Example</h2>
+<h3>Markdown</h3>
+<pre>
+#This is a heading
+
+This is a paragraph
+
+    var a = &apos;123&apos;;
+    var f = function() {
+        return 4;
+    }
+</pre>
+
+
+<h3>Output</h3>
+<pre>
+&lt;h1&gt;This is a heading&lt;/h1&gt;
+&lt;p&gt;This is a paragraph&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; a = &lt;span class=&quot;string&quot;&gt;&apos;123&apos;&lt;/span&gt;;
+&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; f = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; {&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;;
+</pre>
+
+
 <h2>Live Preview</h2>
 <p>The <code>--preview</code> option lets you preview your markdown files before generating them as html.  When you open your browser to your live preview, you don&apos;t have to bother with refreshing every time you make a change to your markdown file, markx will automatically refresh your browser when it detects a change.  How cool is that?
 
@@ -55,4 +79,7 @@ Examples:
 </p>
 <h2>Support Languages</h2>
 <p><a href="https://github.com/jgallen23/highlight.js/tree/master/src/languages">Here</a> are the supported languages for syntax highlighting.
-</p></div></body></html>
+
+</p>
+<h2>Future</h2>
+<ul><li>pass in custom header and footer</li><li>different themes for live preview</li></ul></div></body></html>
