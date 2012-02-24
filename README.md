@@ -19,6 +19,8 @@ Markx is a command line tool for node.js to convert markdown and code blocks int
 		-l, --lang <lang>     Language for syntax highlighting (default: auto)
 		-n, --nohl            Disable syntax highlighting
 		-p, --preview <port>  Start a server to get a live preview
+		-h, --head <file>     Custom head file
+		-f, --foot <file>     Custom foot file
 
 	Examples:
 
@@ -30,6 +32,9 @@ Markx is a command line tool for node.js to convert markdown and code blocks int
 
 		# live preview of your markdown file
 		$ markx --lang javascript --preview 8001 blog.md
+
+		# live preview of your markdown file with a custom header/footer
+		$ markx --lang javascript --preview 8001 --head head.html --foot foot.html blog.md
 
 ##Example
 
@@ -66,6 +71,16 @@ The `--preview` option lets you preview your markdown files before generating th
 
 [Here](https://github.com/jgallen23/highlight.js/tree/master/src/languages) are the supported languages for syntax highlighting.
 
+##History
+
+###0.0.3
+- added custom headers (--head) and footer (--foot)
+
+###0.0.2
+- fixed auto refresh
+
+###0.0.1
+- initial release
+
 ##Future
-- pass in custom header and footer
 - different themes for live preview

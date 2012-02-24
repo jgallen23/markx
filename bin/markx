@@ -5,10 +5,12 @@ var render = require('../lib/render');
 var preview = require('../lib/preview');
 
 program
-  .version('0.0.1')
+  .version('0.0.3')
 	.option('-l, --lang <lang>', 'Language for syntax highlighting (default: auto)')
   .option('-n, --nohl', 'Disable syntax highlighting')
   .option('-p, --preview <port>', 'Start a server to get a live preview', parseInt)
+  .option('-h, --head <file>', 'Custom head file')
+  .option('-f, --foot <file>', 'Custom foot file')
   .usage('[file]')
 
 program.on('--help', function() {
@@ -22,17 +24,29 @@ program.on('--help', function() {
   console.log('');
   console.log('    # live preview of your markdown file');
   console.log('    $ markx --lang javascript --preview 8001 blog.md');
+  console.log('');
+  console.log('    # live preview of your markdown file with a custom header/footer');
+  console.log('    $ markx --lang javascript --preview 8001 --head head.html --foot foot.html blog.md');
 });
 
 program.parse(process.argv);
 
 var files = program.args;
 
+
 if (files.length == 1) {
+  var options = {
+    file: files[0],
+    lang: program.lang,
+    nohl: program.nohl,
+    preview: program.preview,
+    head: program.head,
+    foot: program.foot
+  }
   if (program.preview) {
-    preview(files[0], program.lang, program.nohl, program.preview);
+    preview(options);
   } else {
-    render(files[0], program.lang, program.nohl, function(out) {
+    render(options, function(out) {
       process.stdout.write(out);
     });
   }
