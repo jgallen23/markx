@@ -34,6 +34,8 @@ Options:
     -l, --lang &lt;lang&gt;     Language for syntax highlighting (default: auto)
     -n, --nohl            Disable syntax highlighting
     -p, --preview &lt;port&gt;  Start a server to get a live preview
+    -h, --head &lt;file&gt;     Custom head file
+    -f, --foot &lt;file&gt;     Custom foot file
 
 Examples:
 
@@ -44,7 +46,10 @@ Examples:
     $ markx --lang javascript blog.md &gt; blog.html
 
     # live preview of your markdown file
-    $ markx --lang javascript --preview 8001 blog.md</code></pre>
+    $ markx --lang javascript --preview 8001 blog.md
+
+    # live preview of your markdown file with a custom header/footer
+    $ markx --lang javascript --preview 8001 --head head.html --foot foot.html blog.md</code></pre>
 <h2>Example</h2>
 <h3>Markdown</h3>
 <pre>
@@ -81,5 +86,12 @@ This is a paragraph
 <p><a href="https://github.com/jgallen23/highlight.js/tree/master/src/languages">Here</a> are the supported languages for syntax highlighting.
 
 </p>
+<h2>History</h2>
+<h3>0.0.3</h3>
+<ul><li>added custom headers (--head) and footer (--foot) </li></ul>
+<h3>0.0.2</h3>
+<ul><li>fixed auto refresh </li></ul>
+<h3>0.0.1</h3>
+<ul><li>initial release </li></ul>
 <h2>Future</h2>
-<ul><li>pass in custom header and footer</li><li>different themes for live preview</li></ul></div></body></html>
+<ul><li>different themes for live preview</li></ul></div></body></html>
