@@ -59,6 +59,23 @@ This is a paragraph
 &lt;span class="keyword"&gt;return&lt;/span&gt; &lt;span class="number"&gt;4&lt;/span&gt;;
 </pre>
 
+###Set Syntax Language
+
+If the auto detection isn't working, you can either pass in the language using --lang or you can set it in your markdown file using `[lang].  See below for an example.
+
+<pre>
+#This is a heading
+
+This is a paragraph
+
+	`javascript
+	var a = '123';
+	var f = function() {
+		return 4;
+	}
+</pre>
+
+
 ##Live Preview
 	
 The `--preview` option lets you preview your markdown files before generating them as html.  When you open your browser to your live preview, you don't have to bother with refreshing every time you make a change to your markdown file, markx will automatically refresh your browser when it detects a change.  How cool is that?
@@ -72,6 +89,9 @@ The `--preview` option lets you preview your markdown files before generating th
 [Here](https://github.com/jgallen23/highlight.js/tree/master/src/languages) are the supported languages for syntax highlighting.
 
 ##History
+
+###0.0.4
+- ability to set the syntax language in your markdown file using `[lang] as the first line of your code snippet
 
 ###0.0.3
 - added custom headers (--head) and footer (--foot)
