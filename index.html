@@ -18,8 +18,11 @@
     <a href="http://github.com/jgallen23/markx"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
     <div id="wrapper">
 <h1>markx</h1>
-<h3>markdown + syntax highlighting =&gt; html</h3>
-<p>Markx is a command line tool for node.js to convert markdown and code blocks into html.  It also has the ability to preview your markdown files live with auto refresh.
+<h3>anything =&gt; html</h3>
+<p>Markx is a command line tool for node.js to generate static sites.  It will convert markdown, jade and any code snippets into html.  It also has the ability to preview your files live with auto refresh.
+
+</p>
+<p>Markx is great for github pages, phonegap projects and simple, static sites.
 
 </p>
 <h2>Install</h2>
@@ -29,27 +32,30 @@
 
 Options:
 
-    -h, --help            output usage information
-    -V, --version         output the version number
-    -l, --lang &lt;lang&gt;     Language for syntax highlighting (default: auto)
-    -n, --nohl            Disable syntax highlighting
-    -p, --preview &lt;port&gt;  Start a server to get a live preview
-    -h, --head &lt;file&gt;     Custom head file
-    -f, --foot &lt;file&gt;     Custom foot file
+    -h, --help             output usage information
+    -V, --version          output the version number
+    -n, --nohl             Disable syntax highlighting
+    -p, --preview &lt;port&gt;   Start a server to get a live preview
+    -h, --head &lt;file&gt;      Custom head file
+    -f, --foot &lt;file&gt;      Custom foot file
+    -t, --template &lt;file&gt;  Jade template file
 
 Examples:
 
     # convert markdown and code blocks to html
     $ markx blog.md &gt; blog.html
 
-    # convert markdown and specific language code blocks to html
-    $ markx --lang javascript blog.md &gt; blog.html
+    # convert jade to html
+    $ markx index.jade &gt; index.html
+
+    # convert markdown with jade template to html
+    $ markx --template template.jade blog.md &gt; blog.html
 
     # live preview of your markdown file
-    $ markx --lang javascript --preview 8001 blog.md
+    $ markx --preview 8001 blog.md
 
     # live preview of your markdown file with a custom header/footer
-    $ markx --lang javascript --preview 8001 --head head.html --foot foot.html blog.md</code></pre>
+    $ markx --preview 8001 --head head.html --foot foot.html blog.md</code></pre>
 <h2>Example</h2>
 <h3>Markdown</h3>
 <pre>
@@ -105,6 +111,8 @@ This is a paragraph
 
 </p>
 <h2>History</h2>
+<h3>0.0.5</h3>
+<ul><li>jade as input file</li><li>jade template file</li><li>watch head/foot/template for changes </li></ul>
 <h3>0.0.4</h3>
 <ul><li>ability to set the syntax language in your markdown file using `[lang] as the first line of your code snippet </li></ul>
 <h3>0.0.3</h3>
