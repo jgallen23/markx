@@ -1,8 +1,10 @@
 # markx
 
-### markdown + syntax highlighting => html
+### anything => html
 
-Markx is a command line tool for node.js to convert markdown and code blocks into html.  It also has the ability to preview your markdown files live with auto refresh.
+Markx is a command line tool for node.js to generate static sites.  It will convert markdown, jade and any code snippets into html.  It also has the ability to preview your files live with auto refresh.
+
+Markx is great for github pages, phonegap projects and simple, static sites.
 
 ##Install
 
@@ -14,27 +16,30 @@ Markx is a command line tool for node.js to convert markdown and code blocks int
 
 	Options:
 
-		-h, --help            output usage information
-		-V, --version         output the version number
-		-l, --lang <lang>     Language for syntax highlighting (default: auto)
-		-n, --nohl            Disable syntax highlighting
-		-p, --preview <port>  Start a server to get a live preview
-		-h, --head <file>     Custom head file
-		-f, --foot <file>     Custom foot file
+		-h, --help             output usage information
+		-V, --version          output the version number
+		-n, --nohl             Disable syntax highlighting
+		-p, --preview <port>   Start a server to get a live preview
+		-h, --head <file>      Custom head file
+		-f, --foot <file>      Custom foot file
+		-t, --template <file>  Jade template file
 
 	Examples:
 
 		# convert markdown and code blocks to html
 		$ markx blog.md > blog.html
 
-		# convert markdown and specific language code blocks to html
-		$ markx --lang javascript blog.md > blog.html
+		# convert jade to html
+		$ markx index.jade > index.html
+
+		# convert markdown with jade template to html
+		$ markx --template template.jade blog.md > blog.html
 
 		# live preview of your markdown file
-		$ markx --lang javascript --preview 8001 blog.md
+		$ markx --preview 8001 blog.md
 
 		# live preview of your markdown file with a custom header/footer
-		$ markx --lang javascript --preview 8001 --head head.html --foot foot.html blog.md
+		$ markx --preview 8001 --head head.html --foot foot.html blog.md
 
 ##Example
 
@@ -89,6 +94,11 @@ The `--preview` option lets you preview your markdown files before generating th
 [Here](https://github.com/jgallen23/highlight.js/tree/master/src/languages) are the supported languages for syntax highlighting.
 
 ##History
+
+###0.0.5
+- jade as input file
+- jade template file
+- watch head/foot/template for changes
 
 ###0.0.4
 - ability to set the syntax language in your markdown file using `[lang] as the first line of your code snippet

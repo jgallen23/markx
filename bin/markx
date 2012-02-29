@@ -1,16 +1,14 @@
 #!/usr/bin/env node
 
 var program = require('commander');
-var render = require('../lib/render');
-var preview = require('../lib/preview');
 
 program
-  .version('0.0.3')
-	.option('-l, --lang <lang>', 'Language for syntax highlighting (default: auto)')
+  .version('0.0.5')
   .option('-n, --nohl', 'Disable syntax highlighting')
   .option('-p, --preview <port>', 'Start a server to get a live preview', parseInt)
   .option('-h, --head <file>', 'Custom head file')
   .option('-f, --foot <file>', 'Custom foot file')
+  .option('-t, --template <file>', 'Jade template file')
   .usage('[file]')
 
 program.on('--help', function() {
@@ -18,15 +16,18 @@ program.on('--help', function() {
   console.log('');  
   console.log('    # convert markdown and code blocks to html');
   console.log('    $ markx blog.md > blog.html');
-  console.log('');
-  console.log('    # convert markdown and specific language code blocks to html');
-  console.log('    $ markx --lang javascript blog.md > blog.html');
+  console.log('');  
+  console.log('    # convert jade to html');
+  console.log('    $ markx index.jade > index.html');
+  console.log('');  
+  console.log('    # convert markdown with jade template to html');
+  console.log('    $ markx --template template.jade blog.md > blog.html');
   console.log('');
   console.log('    # live preview of your markdown file');
-  console.log('    $ markx --lang javascript --preview 8001 blog.md');
+  console.log('    $ markx --preview 8001 blog.md');
   console.log('');
   console.log('    # live preview of your markdown file with a custom header/footer');
-  console.log('    $ markx --lang javascript --preview 8001 --head head.html --foot foot.html blog.md');
+  console.log('    $ markx --preview 8001 --head head.html --foot foot.html blog.md');
 });
 
 program.parse(process.argv);
@@ -35,18 +36,20 @@ var files = program.args;
 
 
 if (files.length == 1) {
+  var file = files[0];
   var options = {
-    file: files[0],
-    lang: program.lang,
     nohl: program.nohl,
     preview: program.preview,
     head: program.head,
-    foot: program.foot
+    foot: program.foot,
+    template: program.template
   }
   if (program.preview) {
-    preview(options);
+    var preview = require('../lib/preview');
+    preview(file, options);
   } else {
-    render(options, function(out) {
+    var convert = require('../lib/convert');
+    convert(file, options, function(out) {
       process.stdout.write(out);
     });
   }
