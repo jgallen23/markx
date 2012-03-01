@@ -1,3 +1,6 @@
+#0.0.6
+- don't use default head/foot if jade
+- convert on every refresh
 #0.0.5
 - jade as input file
 - jade template file
