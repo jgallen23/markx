@@ -9,6 +9,7 @@ program
   .option('-h, --head <file>', 'Custom head file')
   .option('-f, --foot <file>', 'Custom foot file')
   .option('-t, --template <file>', 'Jade template file')
+  .option('-m, --masher <file>', 'Masher config file')
   .usage('[file]')
 
 program.on('--help', function() {
@@ -42,7 +43,8 @@ if (files.length == 1) {
     preview: program.preview,
     head: program.head,
     foot: program.foot,
-    template: program.template
+    template: program.template,
+    masher: program.masher
   }
   if (program.preview) {
     var preview = require('../lib/preview');

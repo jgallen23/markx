@@ -1,0 +1,18 @@
+{
+  "assetPath": "",
+  "outputPath": "public/_compressed",
+  "groups": {
+    "common": {
+      "styles": [
+        "public/common.css"
+      ]
+    }
+  },
+  "plugins": {
+    "pre": [
+    ],
+    "post": [
+      "hash"
+    ]
+  }
+}
