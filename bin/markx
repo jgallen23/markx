@@ -4,7 +4,7 @@ var program = require('commander');
 var fs = require('fs');
 
 program
-  .version('0.0.6')
+  .version('0.0.8')
   .option('-n, --nohl', 'Disable syntax highlighting')
   .option('-p, --preview <port>', 'Start a server to get a live preview', parseInt)
   .option('-h, --head <file>', 'Custom head file')
