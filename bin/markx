@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var program = require('commander');
+var fs = require('fs');
 
 program
   .version('0.0.6')
@@ -38,13 +39,19 @@ var files = program.args;
 
 if (files.length == 1) {
   var file = files[0];
-  var options = {
-    nohl: program.nohl,
-    preview: program.preview,
-    head: program.head,
-    foot: program.foot,
-    template: program.template,
-    masher: program.masher
+  if (file.match(/\.json$/)) {
+    var options = JSON.parse(fs.readFileSync(file, 'utf8'));
+    file = options.file;
+    options.preview = program.preview;
+  } else {
+    var options = {
+      nohl: program.nohl,
+      preview: program.preview,
+      head: program.head,
+      foot: program.foot,
+      template: program.template,
+      masher: program.masher
+    }
   }
   if (program.preview) {
     var preview = require('../lib/preview');
@@ -52,7 +59,11 @@ if (files.length == 1) {
   } else {
     var convert = require('../lib/convert');
     convert(file, options, function(out) {
-      process.stdout.write(out);
+      if (options.output) {
+        fs.writeFile(options.output, out);
+      } else {
+        process.stdout.write(out);
+      }
     });
   }
 } else {

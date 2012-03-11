@@ -1,0 +1,24 @@
+{
+  "template": "template.jade",
+  "file": "post.md",
+  "output": "index.html",
+  "masher": {
+    "assetPath": "",
+    "outputPath": "public/_compressed",
+    "groups": {
+      "common": {
+        "styles": [
+          "public/common.css"
+        ]
+      }
+    },
+    "plugins": {
+      "pre": [
+      ],
+      "post": [
+        "hash"
+      ]
+    }
+  }
+}
+

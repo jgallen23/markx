@@ -95,6 +95,9 @@ The `--preview` option lets you preview your markdown files before generating th
 
 ##History
 
+###0.0.7
+- added masher support
+
 ###0.0.6
 - don't use default head/foot if jade
 - convert on every refresh
