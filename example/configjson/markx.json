@@ -2,6 +2,9 @@
   "template": "template.jade",
   "input": "post.md",
   "output": "index.html",
+  "data": {
+    "pageTitle": "This is a page title"
+  },
   "masher": {
     "assetPath": "",
     "outputPath": "public/_compressed",
