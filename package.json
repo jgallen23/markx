@@ -9,6 +9,7 @@
     "url": "https://github.com/jgallen23/markx.git"
   },
   "dependencies": {
+    "aug": "*",
     "commander": "*",
     "highlight.js": "*",
     "marked": "*",

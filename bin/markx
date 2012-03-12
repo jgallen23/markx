@@ -2,15 +2,17 @@
 
 var program = require('commander');
 var fs = require('fs');
+var aug = require('aug');
 
 program
-  .version('0.0.8')
+  .version(JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version)
   .option('-n, --nohl', 'Disable syntax highlighting')
   .option('-p, --preview <port>', 'Start a server to get a live preview', parseInt)
   .option('-h, --head <file>', 'Custom head file')
   .option('-f, --foot <file>', 'Custom foot file')
   .option('-t, --template <file>', 'Jade template file')
   .option('-m, --masher <file>', 'Masher config file')
+  .option('-i, --input <file>', 'Input file')
   .usage('[file]')
 
 program.on('--help', function() {
@@ -36,24 +38,40 @@ program.parse(process.argv);
 
 var files = program.args;
 
+var defaults =  {
+  template: '',
+  head: '',
+  foot: '',
+  input: '',
+  output: '',
+  nohl: false,
+  preview: '',
+  data: {},
+  masher: {
+    assetPath: '',
+    outputPath: '',
+    groups: {
+    },
+    plugins: {
+      pre: [
+      ],
+      post: [
+      ]
+    }
+  }
+};
+
 
 if (files.length == 1) {
   var file = files[0];
+  var options = aug({}, defaults);
   if (file.match(/\.json$/)) {
-    var options = JSON.parse(fs.readFileSync(file, 'utf8'));
-    file = options.file;
-    options.preview = program.preview;
-  } else {
-    var options = {
-      nohl: program.nohl,
-      preview: program.preview,
-      head: program.head,
-      foot: program.foot,
-      template: program.template,
-      masher: program.masher
-    }
-  }
-  if (program.preview) {
+    var config = JSON.parse(fs.readFileSync(file, 'utf8'));
+    aug('strict', options, config);
+    file = options.input;
+  } 
+  aug('strict', options, program);
+  if (options.preview) {
     var preview = require('../lib/preview');
     preview(file, options);
   } else {

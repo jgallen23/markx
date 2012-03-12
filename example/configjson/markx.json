@@ -1,6 +1,6 @@
 {
   "template": "template.jade",
-  "file": "post.md",
+  "input": "post.md",
   "output": "index.html",
   "masher": {
     "assetPath": "",
