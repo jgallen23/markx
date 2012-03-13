@@ -3,6 +3,7 @@
 var program = require('commander');
 var fs = require('fs');
 var aug = require('aug');
+var Masher = require('masher');
 
 program
   .version(JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version)
@@ -73,6 +74,9 @@ if (files.length == 1) {
   aug('strict', options, program);
   if (options.input)
     file = options.input
+  if (options.masher) {
+    options.masher = new Masher(options.masher, (options.preview)?true:false);
+  }
   if (options.preview) {
     var preview = require('../lib/preview');
     preview(file, options);

@@ -4,12 +4,13 @@
   "groups": {
     "common": {
       "styles": [
-        "public/common.css"
+        "public/common.styl"
       ]
     }
   },
   "plugins": {
     "pre": [
+      "stylus"
     ],
     "post": [
       "hash"
