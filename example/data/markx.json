@@ -1,0 +1,15 @@
+{
+  "input": "index.jade",
+  "data": {
+    "pageTitle": "This is a page title",
+    "env": "dev",
+    "config": {
+      "dev": {
+        "debug": true
+      },
+      "production": {
+        "debug": false
+      }
+    }
+  }
+}

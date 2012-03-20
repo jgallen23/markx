@@ -2,6 +2,7 @@
 
 var program = require('commander');
 var fs = require('fs');
+var path = require('path');
 var aug = require('aug');
 var Masher = require('masher');
 
@@ -15,6 +16,7 @@ program
   .option('-m, --masher <file>', 'Masher config file')
   .option('-i, --input <file>', 'Input file')
   .option('-o, --output <file>', 'Output file')
+  .option('-d, --data <file|json string>', 'Data')
   .usage('[file]')
 
 program.on('--help', function() {
@@ -71,6 +73,17 @@ if (files.length == 1) {
     var config = JSON.parse(fs.readFileSync(file, 'utf8'));
     aug('strict', options, config);
   } 
+  if (program.data) { //read json string or file
+    var json;
+    if (path.existsSync(program.data)) { //file
+      json = JSON.parse(fs.readFileSync(program.data, 'utf8'));
+    } else { //parse json string
+      json = JSON.parse(program.data);
+    }
+    aug('strict', options.data, json);
+    console.log(options.data);
+    delete program.data;
+  }
   aug('strict', options, program);
   if (options.input)
     file = options.input

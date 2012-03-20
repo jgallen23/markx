@@ -1,0 +1,11 @@
+!!! 5
+html
+  head
+    title= pageTitle
+    link(rel='stylesheet', href='stylesheets/common.css')
+  body
+    p this is the body
+    if config[env].debug
+      p this is a debug message
+    else
+      p this is a normal message
