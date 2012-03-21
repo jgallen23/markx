@@ -81,7 +81,6 @@ if (files.length == 1) {
       json = JSON.parse(program.data);
     }
     aug('strict', options.data, json);
-    console.log(options.data);
     delete program.data;
   }
   aug('strict', options, program);
