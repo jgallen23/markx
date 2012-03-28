@@ -68,10 +68,10 @@ var defaults =  {
 
 if (files.length == 1) {
   var file = files[0];
-  var options = aug({}, defaults);
+  var options = aug(true, {}, defaults);
   if (file.match(/\.json$/)) {
     var config = JSON.parse(fs.readFileSync(file, 'utf8'));
-    aug('strict', options, config);
+    aug(true, options, config);
   } 
   if (program.data) { //read json string or file
     var json;
@@ -80,10 +80,10 @@ if (files.length == 1) {
     } else { //parse json string
       json = JSON.parse(program.data);
     }
-    aug('strict', options.data, json);
+    aug(true, options.data, json);
     delete program.data;
   }
-  aug('strict', options, program);
+  aug(true, options, program);
   if (options.input)
     file = options.input
   if (options.masher) {
