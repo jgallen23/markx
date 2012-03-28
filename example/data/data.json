@@ -1,3 +1,3 @@
 {
-  "env": "production"
+  "copy": "from file"
 }

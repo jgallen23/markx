@@ -51,6 +51,7 @@ var defaults =  {
   nohl: false,
   preview: '',
   data: {},
+  env: {},
   masher: {
     assetPath: '',
     outputPath: '',
@@ -86,6 +87,10 @@ if (files.length == 1) {
   aug(true, options, program);
   if (options.input)
     file = options.input
+  if (options.env) {
+    var env = process.env.NODE_ENV || 'development';
+    options.env = options.env[env];
+  }
   if (options.masher) {
     options.masher = new Masher(options.masher, (options.preview)?true:false);
   }

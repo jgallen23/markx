@@ -1,0 +1,11 @@
+{
+  "input": "index.jade",
+  "env": {
+    "development": {
+      "copy": "dev"
+    },
+    "production": {
+      "copy": "production"
+    }
+  }
+}

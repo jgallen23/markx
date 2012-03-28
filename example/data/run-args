@@ -1,2 +1,2 @@
 #!/bin/bash
-../../bin/markx --data "{ \"env\": \"production\" }" markx.json
+../../bin/markx --data "{ \"copy\": \"from args\" }" markx.json
