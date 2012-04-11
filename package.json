@@ -16,7 +16,8 @@
     "masher": "*",
     "jade": "*",
     "node-static": "*",
-    "resistance": "*"
+    "resistance": "*",
+    "stalk": "*"
   },
   "devDependencies": {
     "mocha": "*",
