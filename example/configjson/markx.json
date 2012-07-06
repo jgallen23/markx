@@ -7,7 +7,7 @@
   },
   "masher": {
     "assetPath": "",
-    "outputPath": "public/_compressed",
+    "outputDir": "public/_compressed",
     "groups": {
       "common": {
         "styles": [
