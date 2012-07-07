@@ -76,7 +76,7 @@ if (files.length == 1) {
   } 
   if (program.data) { //read json string or file
     var json;
-    if (path.existsSync(program.data)) { //file
+    if (fs.existsSync(program.data)) { //file
       json = JSON.parse(fs.readFileSync(program.data, 'utf8'));
     } else { //parse json string
       json = JSON.parse(program.data);
