@@ -13,14 +13,13 @@
     "commander": "*",
     "highlight.js": "*",
     "marked": "*",
-    "masher": "*",
     "jade": "*",
-    "node-static": "*",
     "resistance": "*",
-    "stalk": "*"
+    "send": "*"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "supertest": "*"
   },
   "bin": { "markx": "./bin/markx" },
   "keywords": ["markdown", "highlight", "cli", "syntax", "preview"]
