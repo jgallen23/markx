@@ -1,7 +1,7 @@
 {
   "name": "markx",
   "description": "a command line markdown + syntax highlighter with live preview",
-  "version": "0.1.00alpha1",
+  "version": "0.1.0alpha2",
   "homepage": "https://github.com/jgallen23/markx",
   "author": "Greg Allen <@jgaui> (http://jga.me)",
   "repository": {
@@ -22,6 +22,6 @@
     "mocha": "*",
     "supertest": "*"
   },
-  "bin": { "markx": "./bin/markx" },
+  "bin": { "markx": "./bin/markx.js" },
   "keywords": ["markdown", "highlight", "cli", "syntax", "preview"]
 }
