@@ -31,7 +31,28 @@ suite('convert', function() {
       });
     });
 
-    test('convert with jade template')
+    test('convert with jade template', function(done) {
+      convert({
+        input: fixturePath + 'syntax2.md',
+        template: fixturePath + 'layout2.jade'
+      }, function(err, results) {
+        assert.equal(results, readFixture('jade2.html'));
+        done();
+      });
+    });
+
+    test('pass through data to jade', function(done) {
+      convert({
+        input: fixturePath + 'syntax2.md',
+        template: fixturePath + 'layout1.jade',
+        data: {
+          pageTitle: 'Page Title'
+        }
+      }, function(err, results) {
+        assert.equal(results, readFixture('jade3.html'));
+        done();
+      });
+    })
     test('convert with html template')
   });
 });
