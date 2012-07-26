@@ -1,4 +1,19 @@
 
+0.1.0alpha1 / 2012-07-26 
+==================
+
+  * re-wrote bin using optimist
+  * pass in yaml/json file for template data
+  * read from config file
+  * re-wrote preview, added unit tests
+  * tests for jade as input file
+  * more jade tests
+  * jade unit tests
+  * markdown unit tests, started refactor
+  * bump package
+  * Release 0.0.17
+  * added index.js
+
 0.0.17 / 2012-07-05 
 ==================
 
