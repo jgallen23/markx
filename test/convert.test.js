@@ -86,7 +86,7 @@ suite('convert', function() {
 
   suite('config file', function() {
 
-    test('pass json file instead of object', function(done) {
+    test('pass yaml/json file instead of object', function(done) {
       convert(fixturePath + 'config.json', function(err, results) {
         assert.equal(results, readFixture('jade2.html'));
         done();
@@ -100,6 +100,19 @@ suite('convert', function() {
       }, function(err, results) {
         //input and template come from config, can override with object (highlight = false)
         assert.equal(results, readFixture('config.html'));
+        done();
+      });
+    });
+  });
+
+  suite('data', function() {
+    test('can pass in yaml/json file as data', function(done) {
+      convert({
+        input: fixturePath + 'basic.jade',
+        template: fixturePath + 'layout2.jade',
+        data: fixturePath + 'data.yaml'
+      }, function(err, results) {
+        assert.equal(results, readFixture('jade5.html'));
         done();
       });
     });
