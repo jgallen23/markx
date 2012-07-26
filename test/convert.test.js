@@ -83,4 +83,25 @@ suite('convert', function() {
       });
     });
   });
+
+  suite('config file', function() {
+
+    test('pass json file instead of object', function(done) {
+      convert(fixturePath + 'config.json', function(err, results) {
+        assert.equal(results, readFixture('jade2.html'));
+        done();
+      });
+    });
+
+    test('options.config = file', function(done) {
+      convert({
+        highlight: false,
+        config: fixturePath + 'config.json'
+      }, function(err, results) {
+        //input and template come from config, can override with object (highlight = false)
+        assert.equal(results, readFixture('config.html'));
+        done();
+      });
+    });
+  });
 });

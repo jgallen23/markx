@@ -14,6 +14,7 @@
     "highlight.js": "*",
     "marked": "*",
     "jade": "*",
+    "js-yaml": "*",
     "resistance": "*",
     "send": "*"
   },
