@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "aug": "*",
-    "commander": "*",
     "highlight.js": "*",
     "marked": "*",
     "jade": "*",
     "js-yaml": "*",
+    "optimist": "*",
     "resistance": "*",
     "send": "*"
   },
