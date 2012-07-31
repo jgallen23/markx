@@ -117,4 +117,18 @@ suite('convert', function() {
       });
     });
   });
+
+  suite('ejs input file', function() {
+    test('ejs input file with no template', function(done) {
+      convert({
+        input: fixturePath + 'test.ejs',
+        data: {
+          pageTitle: 'Page Title'
+        }
+      }, function(err, results) {
+        assert.equal(results, readFixture('ejs.html'));
+        done();
+      });
+    });
+  });
 });
