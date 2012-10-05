@@ -9,19 +9,22 @@
     "url": "https://github.com/jgallen23/markx.git"
   },
   "dependencies": {
-    "aug": "*",
-    "highlight.js": "*",
-    "ejs": "*",
-    "marked": "*",
-    "jade": "*",
-    "js-yaml": "*",
-    "optimist": "*",
-    "resistance": "*",
-    "send": "*"
+    "aug": "0.0.5",
+    "highlight.js": "7.2.0",
+    "ejs": "0.8.3",
+    "marked": "0.2.5",
+    "jade": "0.27.5",
+    "js-yaml": "1.0.2",
+    "optimist": "0.3.4",
+    "resistance": "2.0.0alpha2",
+    "send": "0.1.0"
   },
   "devDependencies": {
     "mocha": "*",
     "supertest": "*"
+  },
+  "scripts": {
+    "test": "mocha"
   },
   "bin": { "markx": "./bin/markx.js" },
   "keywords": ["markdown", "highlight", "cli", "syntax", "preview"]
