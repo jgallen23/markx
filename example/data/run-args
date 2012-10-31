@@ -1,2 +1,0 @@
-#!/bin/bash
-../../bin/markx --data "{ \"copy\": \"from args\" }" markx.json

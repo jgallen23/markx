@@ -1,7 +1,0 @@
-{
-  "input": "index.jade",
-  "data": {
-    "pageTitle": "This is a page title",
-    "copy": "from markx.json"
-  }
-}

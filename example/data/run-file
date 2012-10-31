@@ -1,2 +1,0 @@
-#!/bin/bash
-../../bin/markx --data data.json markx.json
