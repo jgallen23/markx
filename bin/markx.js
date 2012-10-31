@@ -4,7 +4,7 @@ var fs = require('fs');
 var convert = require('../lib/convert');
 var preview = require('../lib/preview');
 
-var version = JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version
+var version = JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version;
 var opt = require('optimist')
   .usage('Markx '+version+'\n$0 [opts]')
   .options('i', {
@@ -20,7 +20,7 @@ var opt = require('optimist')
   .options('l', {
     alias: 'highlight',
     describe: 'Enable or disable syntax highlighting',
-    default: true,
+    "default": true,
     type: 'boolean'
   })
   .options('d', {

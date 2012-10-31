@@ -28,5 +28,6 @@
     "test": "mocha"
   },
   "bin": { "markx": "./bin/markx.js" },
-  "keywords": ["markdown", "highlight", "cli", "syntax", "preview"]
+  "main": "./lib/markx.js",
+  "keywords": ["markdown", "highlight", "cli", "syntax", "static"]
 }
