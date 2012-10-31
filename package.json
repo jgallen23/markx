@@ -20,8 +20,9 @@
     "send": "0.1.0"
   },
   "devDependencies": {
-    "mocha": "*",
-    "supertest": "*"
+    "mocha": "1.6.0",
+    "grunt": "0.3.17",
+    "grunt-simple-mocha": "0.2.0"
   },
   "scripts": {
     "test": "mocha"
