@@ -1,21 +1,15 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
-var convert = require('../lib/convert');
-var preview = require('../lib/preview');
-
 var version = JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version;
+var markx = require('../');
+require('js-yaml');
+
 var opt = require('optimist')
-  .usage('Markx '+version+'\n$0 [opts]')
-  .options('i', {
-    alias: 'input',
-    describe: 'Markdown|HTML|Jade input file',
-    demand: true,
-    type: 'string'
-  })
+  .usage('markx '+version+'\nUsage: $0 [opts]')
   .options('t', {
     alias: 'template',
-    describe: 'Jade|HTML template file'
+    describe: 'HTML template file'
   })
   .options('l', {
     alias: 'highlight',
@@ -28,16 +22,6 @@ var opt = require('optimist')
     type: 'string',
     describe: 'JSON|YAML data file that gets passed to input and template'
   })
-  .options('p', {
-    alias: 'preview',
-    type: 'int',
-    describe: 'Start a web server to preview [port]'
-  })
-  .options('c', {
-    alias: 'config',
-    type: 'string',
-    describe: 'JSON|YAML config file to read from'
-  })
   .options('h', {
     alias: 'help',
     describe: 'Show help info'
@@ -45,21 +29,30 @@ var opt = require('optimist')
 
 var argv = opt.argv;
 
-if (argv.help) {
-  return opt.showHelp();
-}
-
-
-if (argv.preview) {
-  if (typeof argv.preview == 'boolean') {
-    argv.preview = 8000;
-  }
-  argv.port = argv.preview;
-
-  preview(argv);
-  console.log('Server started, please visits http://localhost:'+argv.port);
-} else {
-  convert(argv, function(err, results) {
-    process.stdout.write(results);
+if (argv.help || argv._.length === 0) {
+  return opt.showHelp(function(help) {
+    console.log(help);
+    if (argv._.length === 0) {
+      console.log('Error: must pass in a file');
+    }
   });
 }
+
+var data;
+if (argv.data) {
+  data = require(argv.data);
+}
+
+markx({
+  input: argv._[0],
+  highlight: argv.highlight,
+  template: argv.template,
+  data: data
+}, function(err, results) {
+  if (err) {
+    throw err;
+  }
+  process.stdout.write(results);
+});
+
+
