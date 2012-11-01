@@ -4,8 +4,13 @@ markx converts markdown with code snippets into html.  It also has options to pa
 
 ##Installation
 
+Inside a project:
 ```
-npm install markx
+npm install markx --save
+```
+Globally:
+```
+npm install markx -g
 ```
 
 ##CLI Usage
@@ -111,3 +116,10 @@ var f = function() {
 ##History
 
 [View History](https://github.com/jgallen23/markx/blob/master/HISTORY.md)
+
+##Development and Tests
+
+```
+npm install
+./node_modules/.bin/grunt
+```
