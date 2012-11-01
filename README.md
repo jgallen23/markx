@@ -59,7 +59,7 @@ var f = function() {
 </pre>
 
 ###Template
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
   <meta charset="utf-8" />
@@ -84,7 +84,7 @@ var f = function() {
 ```
 
 ###Output
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
   <meta charset="utf-8" />
