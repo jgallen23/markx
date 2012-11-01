@@ -39,6 +39,11 @@ markx({
 
 ##Example
 
+###Command
+```
+markx.js readme-example.md --template readme-example-template.html --data readme-example.json 
+```
+
 ###Markdown
 <pre>
 #This is a heading
@@ -53,18 +58,56 @@ var f = function() {
 ```
 </pre>
 
+###Template
+```
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <head>
+    <title><%= pageTitle %></title>
+  </head>
+  <body>
+    <header>Logo</header>
+    <section>
+      <%- body %>
+    </section>
+    <footer>Footer</footer>
+  </body>
+</html>
+```
+
+###Data
+```javascript
+{
+  "pageTitle": "This is the page title"
+}
+```
+
 ###Output
-<pre>
-&lt;h1&gt;This is a heading&lt;/h1&gt;
-&lt;p&gt;This is a paragraph
+```
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <head>
+    <title>This is the page title</title>
+  </head>
+  <body>
+    <header>Logo</header>
+    <section>
+      <h1>This is a heading</h1>
+<p>This is a paragraph
 
-&lt;/p&gt;
-&lt;pre&gt;&lt;code class="lang-javascript"&gt;&lt;span class="keyword"&gt;var&lt;/span&gt; a = &lt;span class="string"&gt;'123'&lt;/span&gt;;
-&lt;span class="keyword"&gt;var&lt;/span&gt; f = &lt;span class="keyword"&gt;function&lt;/span&gt;() {
-	    &lt;span class="keyword"&gt;return&lt;/span&gt; &lt;span class="number"&gt;4&lt;/span&gt;;
-}&lt;/code&gt;&lt;/pre&gt;
-</pre>
+</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = <span class="string">'123'</span>;
+<span class="keyword">var</span> f = <span class="keyword">function</span>() {
+    <span class="keyword">return</span> <span class="number">4</span>;
+}</code></pre>
 
+    </section>
+    <footer>Footer</footer>
+  </body>
+</html>
+```
 ##History
 
 [View History](https://github.com/jgallen23/markx/blob/master/HISTORY.md)
