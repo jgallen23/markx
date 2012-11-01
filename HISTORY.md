@@ -1,4 +1,19 @@
 
+0.2.0 / 2012-11-01 
+==================
+
+  * updated readme
+  * fixed data path
+  * updated readme
+  * license
+  * updated usage
+  * full re-write
+  * deleted old files, cleanup
+  * removed old examples
+  * removed submodule
+  * removed old code
+  * grunt integration
+
 0.1.0alpha5 / 2012-10-05 
 ==================
 
