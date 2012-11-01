@@ -6,7 +6,7 @@ var markx = require('../');
 require('js-yaml');
 
 var opt = require('optimist')
-  .usage('markx '+version+'\nUsage: $0 [opts]')
+  .usage('markx '+version+'\nUsage: $0 input.md [opts]')
   .options('t', {
     alias: 'template',
     describe: 'HTML template file'
