@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
+var path = require('path');
 var version = JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version;
 var markx = require('../');
 require('js-yaml');
@@ -40,7 +41,8 @@ if (argv.help || argv._.length === 0) {
 
 var data;
 if (argv.data) {
-  data = require(argv.data);
+  var dataPath = path.resolve(process.cwd(), argv.data);
+  data = require(dataPath);
 }
 
 markx({
