@@ -92,6 +92,17 @@ suite('markx', function() {
     
   });
 
+  test('md file + template + front matter', function(done) {
+    markx({
+      input: fixturesDir + 'plain-with-front-matter.md',
+      template: fixturesDir + 'layout2.html'
+    }, function(err, results) {
+      assert.equal(err, null);
+      assert.equal(results, fs.readFileSync(fixturesDir+'plain-layout2.html', 'utf8'));
+      done();
+    });
+    
+  });
 
 });
 
