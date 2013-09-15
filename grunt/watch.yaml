@@ -1,4 +1,5 @@
 test:
   files:
     - '<%= jshint.all %>'
+    - 'test/fixtures/*'
   tasks: 'default'
