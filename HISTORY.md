@@ -1,4 +1,10 @@
 
+0.3.3 / 2013-09-15 
+==================
+
+  * fixed issues with - char in first line.  Fixes #8
+  * tweak to grunt setup
+
 0.3.2 / 2013-09-15 
 ==================
 
