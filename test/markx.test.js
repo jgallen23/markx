@@ -104,5 +104,15 @@ suite('markx', function() {
     
   });
 
+  test('md file + yaml syntax', function(done) {
+    markx({
+      input: fixturesDir + 'yaml-syntax.md'
+    }, function(err, results) {
+      assert.equal(err, null);
+      assert.equal(results, fs.readFileSync(fixturesDir+'yaml-syntax.html', 'utf8'));
+      done();
+    });
+  });
+
 });
 
