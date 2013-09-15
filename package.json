@@ -18,14 +18,24 @@
     "resistance": "2.0.0alpha4"
   },
   "devDependencies": {
-    "mocha": "1.6.0",
-    "grunt": "0.3.17",
-    "grunt-simple-mocha": "0.2.0"
+    "grunt": "~0.4.1",
+    "grunt-simple-mocha": "~0.4.0",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-load-config": "~0.2.0"
   },
   "scripts": {
     "test": "mocha"
   },
-  "bin": { "markx": "./bin/markx.js" },
+  "bin": {
+    "markx": "./bin/markx.js"
+  },
   "main": "./lib/markx.js",
-  "keywords": ["markdown", "highlight", "cli", "syntax", "static"]
+  "keywords": [
+    "markdown",
+    "highlight",
+    "cli",
+    "syntax",
+    "static"
+  ]
 }

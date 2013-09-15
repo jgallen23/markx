@@ -1,0 +1,6 @@
+all:
+  src: 'test/**/*.test.js'
+  options:
+    ui: 'tdd'
+    reporter: 'list'
+    growl: true

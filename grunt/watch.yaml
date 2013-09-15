@@ -1,0 +1,4 @@
+test:
+  files:
+    - '<%= jshint.all %>'
+  tasks: 'default'
