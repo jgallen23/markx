@@ -1,4 +1,10 @@
 
+0.3.2 / 2013-09-15 
+==================
+
+  * try catch around code fence with lang specified.  fixes #7
+  * updated to latest grunt.  fixes #6
+
 0.3.1 / 2013-04-17 
 ==================
 
