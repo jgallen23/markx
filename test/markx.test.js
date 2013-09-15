@@ -114,5 +114,16 @@ suite('markx', function() {
     });
   });
 
+  test('advanced readme file', function(done) {
+    markx({
+      input: fixturesDir + 'list.md'
+    }, function(err, results) {
+      assert.equal(err, null);
+      assert.equal(results, fs.readFileSync(fixturesDir+'list.html', 'utf8'));
+      done();
+    });
+    
+  });
+
 });
 

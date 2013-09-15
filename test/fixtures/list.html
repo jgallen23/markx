@@ -1,0 +1,50 @@
+<h1>grunt-load-config</h1>
+<p>Grunt plugin that lets you break up your Gruntfile config by task.  For most projects a single Gruntfile.js is perfect, but as projects grow, the Grunfile.js can get to a point where it&#39;s unmanagable.  That&#39;s where grunt-load-config comes in.  It was heavily inspired by <a href="http://www.thomasboyt.com/2013/09/01/maintainable-grunt.html">this article</a>.
+
+</p>
+<h2>Features</h2>
+<ul>
+<li>Each task has it&#39;s own config file. Example: jshint.js, mocha.js, etc.</li>
+<li>Auto load all grunt plugins.  Uses <a href="https://github.com/sindresorhus/load-grunt-tasks">load-grunt-tasks</a>.</li>
+<li>Auto expose package.json (&lt;%= package.name %&gt;) options and environment vars (&lt;%= env.USER %&gt;).</li>
+<li>Support for YAML files</li>
+</ul>
+<h2>Installation</h2>
+<p><code>npm install -D grunt-load-config</code>
+
+</p>
+<h2>Example</h2>
+<p>Basic Gruntfile.js
+</p>
+<pre><code class="lang-javascript">module.exports = <span class="keyword">function</span>(grunt) {
+
+    require(<span class="string">'grunt-load-config'</span>)(grunt);
+
+    grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'jshint'</span>, <span class="string">'mocha'</span>, <span class="string">'notify'</span>]);
+
+};</code></pre>
+<p>Gruntfile.js with options
+</p>
+<pre><code class="lang-javascript">module.exports = <span class="keyword">function</span>(grunt) {
+
+    require(<span class="string">'grunt-load-config'</span>)(grunt, {
+        configPath: <span class="string">'grunt'</span>, <span class="comment">//path to task.js files</span>
+        init: <span class="literal">true</span>, <span class="comment">//auto grunt.initConfig</span>
+        config: { <span class="comment">//additional config vars</span>
+            test: <span class="literal">false</span>
+        }
+    });
+
+    grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'jshint'</span>, <span class="string">'mocha'</span>]);
+
+};</code></pre>
+<p>grunt/jshint.js
+</p>
+<pre><code class="lang-javascript">module.exports = {
+    all: [<span class="string">'Gruntfile.js'</span>, <span class="string">'lib/**/*.js'</span>, <span class="string">'test/**/*.js'</span>]
+}</code></pre>
+<p>grunt/notify.yaml
+</p>
+<pre><code class="lang-yaml"><span class="method">default:</span>
+  <span class="method">options:</span>
+    <span class="method">message:</span> <span class="string">'Default finished'</span></code></pre>
