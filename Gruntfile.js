@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-  require('grunt-load-config')(grunt);
+  require('load-grunt-config')(grunt);
 
   grunt.registerTask('default', ['jshint', 'simplemocha']);
   grunt.registerTask('dev', ['watch']);
