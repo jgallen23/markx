@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "aug": "0.0.5",
-    "highlight.js": "7.3.0",
+    "highlight.js": "~7.4.0",
     "ejs": "0.8.3",
     "marked": "0.2.5",
     "js-yaml": "1.0.2",

@@ -2,4 +2,6 @@ test:
   files:
     - '<%= jshint.all %>'
     - 'test/fixtures/*'
+    - 'Gruntfile.js'
+    - 'grunt/*'
   tasks: 'default'

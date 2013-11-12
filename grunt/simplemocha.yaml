@@ -2,5 +2,5 @@ all:
   src: 'test/**/*.test.js'
   options:
     ui: 'tdd'
-    reporter: 'list'
+    reporter: 'Spec'
     growl: true
