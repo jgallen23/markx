@@ -1,4 +1,10 @@
 
+0.3.4 / 2013-11-12 
+==================
+
+  * updated highlight.js
+  * updated to use load-grunt-config
+
 0.3.3 / 2013-09-15 
 ==================
 
