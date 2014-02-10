@@ -1,3 +1,4 @@
+/* global suite,test */
 var assert = require('assert');
 var markx = require('../');
 var fs = require('fs');
@@ -27,7 +28,7 @@ suite('markx', function() {
   test('md source into html', function(done) {
     var source = fs.readFileSync(fixturesDir + 'plain.md', 'utf8');
     markx({
-      input: source 
+      input: source
     }, function(err, results) {
       assert.equal(err, null);
       assert.equal(results, fs.readFileSync(fixturesDir + 'plain.html'));
@@ -44,7 +45,7 @@ suite('markx', function() {
       done();
     });
   });
-  
+
   test('md file + js syntax into html', function(done) {
     markx({
       input: fixturesDir + 'js.md'
@@ -89,7 +90,7 @@ suite('markx', function() {
       assert.equal(results, fs.readFileSync(fixturesDir+'plain-layout2.html', 'utf8'));
       done();
     });
-    
+
   });
 
   test('md file + template + front matter', function(done) {
@@ -101,7 +102,7 @@ suite('markx', function() {
       assert.equal(results, fs.readFileSync(fixturesDir+'plain-layout2.html', 'utf8'));
       done();
     });
-    
+
   });
 
   test('md file + yaml syntax', function(done) {
