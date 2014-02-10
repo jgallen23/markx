@@ -1,4 +1,11 @@
 
+0.4.0 / 2014-02-10 
+==================
+
+  * allow template to be set from yaml frontmatter
+  * cleanup to get jshint passing
+  * allow variables to be included in markdown.  pass in processMarkdown
+
 0.3.4 / 2013-11-12 
 ==================
 
