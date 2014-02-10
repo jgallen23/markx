@@ -78,6 +78,16 @@ suite('markx', function() {
     });
   });
 
+  test('md file + template defined inside markdown', function(done) {
+    markx({
+      input: fixturesDir + 'yaml-with-template.md',
+    }, function(err, results) {
+      assert.equal(err, null);
+      assert.equal(results, fs.readFileSync(fixturesDir+'plain-layout1.html', 'utf8'));
+      done();
+    });
+  });
+
   test('md file + template + data', function(done) {
     markx({
       input: fixturesDir + 'plain.md',
@@ -137,7 +147,7 @@ suite('markx', function() {
       assert.equal(results, '<p>&lt;%= pageTitle %&gt;</p>\n');
       done();
     });
-    
+
   });
 
   test('allow variables inside the markdown', function(done) {
