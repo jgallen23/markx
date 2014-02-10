@@ -122,7 +122,51 @@ suite('markx', function() {
       assert.equal(results, fs.readFileSync(fixturesDir+'list.html', 'utf8'));
       done();
     });
+
+  });
+
+  test('don\'t process <%= %> if processMarkdown not passed in', function(done) {
+    markx({
+      input: '<%= pageTitle %>',
+      data: {
+        pageTitle: 'this is the page title'
+      }
+    }, function(err, results) {
+      assert.equal(err, null);
+      assert.equal(results, '<p>&lt;%= pageTitle %&gt;</p>\n');
+      done();
+    });
     
+  });
+
+  test('allow variables inside the markdown', function(done) {
+    markx({
+      input: '<%= pageTitle %>',
+      processMarkdown: true,
+      data: {
+        pageTitle: 'this is the page title',
+      }
+    }, function(err, results) {
+      assert.equal(err, null);
+      assert.equal(results, '<p>this is the page title</p>\n');
+      done();
+    });
+
+  });
+
+  test('allow variables inside the markdown, processMarkdown in data field', function(done) {
+    markx({
+      input: '<%= pageTitle %>',
+      data: {
+        pageTitle: 'this is the page title',
+        processMarkdown: true
+      }
+    }, function(err, results) {
+      assert.equal(err, null);
+      assert.equal(results, '<p>this is the page title</p>\n');
+      done();
+    });
+
   });
 
 });
