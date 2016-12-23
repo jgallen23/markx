@@ -9,20 +9,20 @@
     "url": "https://github.com/jgallen23/markx.git"
   },
   "dependencies": {
-    "aug": "0.0.5",
-    "highlight.js": "~7.4.0",
-    "ejs": "0.8.3",
-    "marked": "0.2.5",
-    "js-yaml": "1.0.2",
-    "optimist": "0.3.4",
+    "aug": "1.0.1",
+    "highlight.js": "~9.9.0",
+    "ejs": "2.5.5",
+    "marked": "0.3.6",
+    "js-yaml": "3.7.0",
+    "optimist": "0.6.1",
     "resistance": "2.0.0alpha4"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
+    "grunt": "~1.0.1",
     "grunt-simple-mocha": "~0.4.0",
-    "grunt-contrib-jshint": "~0.6.4",
-    "grunt-contrib-watch": "~0.5.3",
-    "load-grunt-config": "~0.3.0"
+    "grunt-contrib-jshint": "~1.1.0",
+    "grunt-contrib-watch": "~1.0.0",
+    "load-grunt-config": "~0.19.2"
   },
   "scripts": {
     "test": "mocha"
